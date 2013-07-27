@@ -1,0 +1,39 @@
+<%= link_to 'New Task', new_task_path %>
+<br/>
+
+<h4>Task remaining</h4>
+
+<table class="table">
+  <tbody>
+    <% @tasks_remaining.each do |task| %>
+      <tr>
+        <td><%= task.name %></td>
+        <td>
+
+          <%= link_to 'Done', done_path(task) %>
+          <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
+<h4>Done</h4>
+<table class="table">
+  <tbody>
+  <% @tasks_done.each do |task| %>
+      <tr>
+        <td><%= task.name %></td>
+        <td>
+          <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </td>
+
+      </tr>
+  <% end %>
+  </tbody>
+
+</table>
+
+
+
