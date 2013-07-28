@@ -1,4 +1,8 @@
 Practice::Application.routes.draw do
+
+  get '/auth/:provider/callback' => 'authentications#create'
+  resources :authentications
+
   resources :tasks
 
   root :to => "home#index"
@@ -6,4 +10,5 @@ Practice::Application.routes.draw do
   resources :users
 
   get '/tasks/:id/done', to: 'tasks#done', as: 'done'
+
 end
